@@ -1,84 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spotfy</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <div>
-            <img src="https://static.vecteezy.com/system/resources/previews/042/148/631/original/spotify-logo-spotify-social-media-icon-free-png.png" alt="">
-            <h1>Spotfy</h1>
-        </div>
-        <nav>
-            <ul>
-                <li>Página Inicial</li>
-                <li>Artistas</li>
-            </ul>
-        </nav>
+      <div>
+        <img
+          src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-download-logo-30.png"
+          alt=""
+        />
+        <h1>Spotfy</h1>
+      </div>
+      <nav>
+        <ul>
+          <li id="irParaMusicas">Página Inicial</li>
+          <li id="listaArtista">Artistas</li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <section id="home">
-            <h1>Spotfy</h1>
-            <p>Bem-vindo ao Spotfy, a plataforma de streaming de música mais popular do mundo! Com uma vasta biblioteca de músicas,
-                playlists personalizadas e recursos inovadores, o Spotfy oferece uma experiência musical única para os amantes de
-                música em todo o mundo. Explore milhões de faixas, descubra novos artistas e crie suas próprias playlists para
-                curtir suas músicas favoritas a qualquer hora e em qualquer lugar. Junte-se à comunidade do Spotfy e mergulhe no
-                universo da música como nunca antes!
-            </p>
-            <button id="cadastrarBtn">Cadastrar</button>
-            <button id="logarBtn">Logar</button>
-        </section>
-        <section id="cadastro">
-                <h2>Cadastro</h2>
-                <form id="cadastroForm">
-                    <label for="email">Email:</label>
-                    <input type="email" id="cEmail" name="email" required>
-                    <br>
-                    <label for="password">Senha:</label>
-                    <input type="password" id="cPassword" name="password" required>
-                    <br>
-                    <button type="submit" id="confirmarCadastro">Cadastrar</button>
-                    <a href="#login" id="logarLink">Logar</a>
-                </form>
-        </section>
-        <section id="login">
-            <h2>Login</h2>
-                <form id="loginForm">
-                    <label for="email">Email:</label>
-                    <input type="email" id="lEmail" name="email" required>
-                    <br>
-                    <label for="password">Senha:</label>
-                    <input type="password" id="lPassword" name="password" required>
-                    <br>
-                    <button type="submit" id="confirmarLogin">Entrar</button>
-                    <a href="#cadastro" id="cadastrarLink">Cadastrar</a>
-                </form>
-        </section>
-        <section id="adicionarMusica">
-            <h2>Adicionar Música</h2>
-            <form id="adicionarMusicaForm">
-                <label for="nomeMusica">Nome da Música:</label>
-                <input type="text" id="nomeMusica" name="nomeMusica" required>
-                <br>
-                <label for="urlMusica">URL da Música:</label>
-                <input type="url" id="urlMusica" name="urlMusica" required>
-                <br>
-                <label for="urlImagem">URL da Imagem:</label>
-                <input type="url" id="urlImagem" name="urlImagem" required>
-                <br>
-                <button type="submit" id="confirmarAdicionarMusica">Adicionar</button>
-            </form>
-        </section>
-        <section id="musicasSection">
-            <h2>Minhas Músicas</h2>
-            <ul id="musicasList">
-            </ul>
-            <button id="adicionarMusicaBtn">Adicionar Música</button>
-        </section>
+      <section id="home">
+        <h1>Spotfy</h1>
+        <p>
+          Bem-vindo ao Spotfy, a plataforma de streaming de música mais popular
+          do mundo! Com uma vasta biblioteca de músicas, playlists
+          personalizadas e recursos inovadores, o Spotfy oferece uma experiência
+          musical única para os amantes de música em todo o mundo. Explore
+          milhões de faixas, descubra novos artistas e crie suas próprias
+          playlists para curtir suas músicas favoritas a qualquer hora e em
+          qualquer lugar. Junte-se à comunidade do Spotfy e mergulhe no universo
+          da música como nunca antes!
+        </p>
+        <button id="cadastrarBtn">Cadastrar</button>
+        <button id="logarBtn">Logar</button>
+      </section>
+      <section id="cadastro">
+        <h2>Cadastro</h2>
+        <form id="cadastroForm">
+          <label for="email">Email:</label>
+          <input type="email" id="cEmail" name="email" required />
+          <br />
+          <label for="password">Senha:</label>
+          <input type="password" id="cPassword" name="password" required />
+          <br />
+          <button type="submit" id="confirmarCadastro">Cadastrar</button>
+          <a href="#login" id="logarLink">Logar</a>
+        </form>
+      </section>
+      <section id="login">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <label for="email">Email:</label>
+          <input type="email" id="lEmail" name="email" required />
+          <br />
+          <label for="password">Senha:</label>
+          <input type="password" id="lPassword" name="password" required />
+          <br />
+          <button type="submit" id="confirmarLogin">Entrar</button>
+          <a href="#cadastro" id="cadastrarLink">Cadastrar</a>
+        </form>
+      </section>
+      <section id="adicionarMusica">
+        <h2>Adicionar Música</h2>
+        <form id="adicionarMusicaForm">
+          <label for="nomeMusica">Nome da Música:</label>
+          <input type="text" id="nomeMusica" name="nomeMusica" required />
+          <br />
+          <label for="urlMusica">URL da Música:</label>
+          <input type="url" id="urlMusica" name="urlMusica" required />
+          <br />
+          <label for="urlImagem">URL da Imagem:</label>
+          <input type="url" id="urlImagem" name="urlImagem" required />
+          <br />
+          <button type="submit" id="confirmarAdicionarMusica">Adicionar</button>
+        </form>
+      </section>
+      <section id="musicasSection">
+        <h2>Minhas Músicas</h2>
+        <ul id="musicasList"></ul>
+        <button id="adicionarMusicaBtn">Adicionar Música</button>
+      </section>
     </main>
     <script src="main.js" type="module"></script>
-</body>
+  </body>
 </html>

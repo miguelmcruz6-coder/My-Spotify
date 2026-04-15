@@ -17,13 +17,16 @@ const listaArtista = document.getElementById("listaArtista");
 
 const cadastroSection = document.getElementById("cadastro");
 const loginSection = document.getElementById("login");
+const musicasSection = document.getElementById("musicasSection");
 
 const confirmarCadastro = document.getElementById("confirmarCadastro");
 const confirmarLogin = document.getElementById("confirmarLogin");
 
-const musicasSection = document.getElementById("musicasSection");
+const musicaAdicionarAba = document.getElementById("adicionarMusica");
 const musicasList = document.getElementById("musicasList");
 const adicionarMusica = document.getElementById("adicionarMusicaForm");
+
+let logado = false;
 
 cadastrarbtn.addEventListener("click", () => {
   home.style.display = "none";
@@ -62,7 +65,8 @@ adicionarMusicaBtn.addEventListener("click", () => {
   cadastroSection.style.display = "none";
   loginSection.style.display = "none";
   musicasSection.style.display = "none";
-  document.getElementById("adicionarMusica").style.display = "block";
+  musicaAdicionarAba.style.display = "block";
+  adicionarMusica.style, (display = "block");
 });
 
 confirmarCadastro.addEventListener("click", async (event) => {
@@ -77,7 +81,9 @@ confirmarCadastro.addEventListener("click", async (event) => {
   }
 });
 
-confirmarLogin.addEventListener("click", async (event) => {
+confirmarLogin.addEventListener("click", loguin);
+
+async function loguin(event) {
   event.preventDefault();
   const email = document.getElementById("lEmail").value;
   const senha = document.getElementById("lPassword").value;
@@ -93,23 +99,26 @@ confirmarLogin.addEventListener("click", async (event) => {
 
   if (encontrou) {
     alert("Usuário logado com sucesso!");
-    home.style.display = "none";
-    cadastroSection.style.display = "none";
-    loginSection.style.display = "none";
-    musicasSection.style.display = "block";
-    escutarMusicas(renderizarMusicas);
+    inicio();
+    logado = true;
   } else {
     alert("Erro ao logar usuário.");
   }
-});
+}
 
-adicionarMusicaForm.addEventListener("submit", async (event) => {
+adicionarMusica.addEventListener("submit", async (event) => {
   event.preventDefault();
   const nomeMusica = document.getElementById("nomeMusica").value;
   const urlMusica = document.getElementById("urlMusica").value;
+  const urlLocalMusica = document.getElementById("urlLocalMusica").value;
   const urlImagem = document.getElementById("urlImagem").value;
 
-  const sucesso = await salvarMusica(nomeMusica, urlMusica, urlImagem);
+  const sucesso = await salvarMusica(
+    nomeMusica,
+    urlMusica,
+    urlLocalMusica,
+    urlImagem
+  );
   if (sucesso) {
     alert("Música adicionada com sucesso!");
     home.style.display = "none";
@@ -138,7 +147,7 @@ function renderizarMusicas(data) {
             </div>
             <div>
             <audio controls>
-                <source src="${musica.url}" type="audio/mpeg">
+                <source src="${musica.musica}" type="audio/mpeg">
             </audio>
             <a href="${musica.url}" target="_blank">Ouvir em outra aba</a>
             </div>
@@ -148,8 +157,21 @@ function renderizarMusicas(data) {
 }
 
 irParaMusicas.addEventListener("click", () => {
-  alert("Ainda em desenvolvimento...");
+  if (logado) {
+    inicio();
+  } else {
+    alert("Faça Login Primeiro");
+  }
 });
 listaArtista.addEventListener("click", () => {
   alert("Ainda em desenvolvimento...");
 });
+
+function inicio() {
+  home.style.display = "none";
+  cadastroSection.style.display = "none";
+  loginSection.style.display = "none";
+  musicasSection.style.display = "block";
+  musicaAdicionarAba.style.display = "none";
+  escutarMusicas(renderizarMusicas);
+}

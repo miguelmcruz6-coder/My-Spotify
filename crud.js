@@ -36,16 +36,24 @@ export function bancoDadosUsuarios() {
   });
 }
 
-export async function salvarMusica(nomeMusica, urlMusica, urlImagem) {
+export async function salvarMusica(
+  nomeMusica,
+  urlMusica,
+  urlLocalMusica,
+  urlImagem
+) {
   try {
     const snapshot = await get(musicaRef);
     if (snapshot.exists()) {
       const musicas = snapshot.val();
 
       const musicaExiste = Object.values(musicas).some(
-        (m) => m.url === urlMusica
+        (m) => m.url === urlMusica || m.url === urlLocalMusica
       );
-      if (musicaExiste) {
+      const urlExiste = Object.values(url).some(
+        (m) => m.url === urlMusica || m.url === urlLocalMusica
+      );
+      if (musicaExiste || urlExiste) {
         console.log("Música já existe!");
         return false;
       }
@@ -54,7 +62,8 @@ export async function salvarMusica(nomeMusica, urlMusica, urlImagem) {
 
     await set(novaMusica, {
       nome: nomeMusica,
-      url: urlMusica,
+      musica: urlMusica,
+      url: urlLocalMusica,
       imagem: urlImagem,
     });
     return true;
